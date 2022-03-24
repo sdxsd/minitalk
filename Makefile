@@ -27,6 +27,6 @@ clean:
 	@rm -fv server
 
 $(S_NAME):
-	$(CC) $(CFLAGS) $(SERVER_FILES) -o $(S_NAME)
+	$(CC) $(CFLAGS) $(SERVER_FILES) ft_printf/libftprintf.a -o $(S_NAME)
 
 .PHONY: all re printf fclean clean

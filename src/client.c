@@ -37,30 +37,18 @@ The definition of Free Software is as follows:
 A program is free software if users have all of these freedoms.
 */
 
-/* Signal Communication Lain...  */
-
-#include <signal.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include "../ft_printf/ft_printf.h"
 
-
-static void	handle_signal(int SIGNUM)
+int main(int argc, char *argv[])
 {
-	if (SIGNUM == SIGUSR1 || SIGNUM == SIGUSR2)
-		ft_printf("Received signal: %d", SIGNUM);
-	if (SIGNUM == SIGINT || SIGNUM == SIGQUIT)
+	if (argc > 3)
 	{
-		ft_printf("SIG: [%d] RECEIVED. QUITTING.\n", SIGNUM);
-		exit (0);
-	}
-}
 
-int	main(void)
-{
-	if (signal(SIGINT, handle_signal) == SIG_ERR)
-		exit (0);
-	ft_printf("Process ID: [%d]\n", getpid());
-	while (1)
-		pause();
+	}
+	else
+	{
+		ft_printf("INCORRECT NUMBER OF ARGUMENTS\n");
+		return (1);
+	}
+	return (0);
 }
