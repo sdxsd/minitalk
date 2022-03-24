@@ -42,8 +42,7 @@ A program is free software if users have all of these freedoms.
 #include <signal.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "../ft_printf/ft_printf.h"
-
+#include "../libft/libft.h"
 
 static void	handle_signal(int SIGNUM)
 {

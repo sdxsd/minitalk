@@ -37,7 +37,7 @@ The definition of Free Software is as follows:
 A program is free software if users have all of these freedoms.
 */
 
-#include "../ft_printf/ft_printf.h"
+#include "../libft/libft.h"
 
 int main(int argc, char *argv[])
 {
