@@ -10,23 +10,25 @@ SERVER_FILES = \
 
 all: $(NAME)
 
-$(NAME): printf $(S_NAME)
+$(NAME): libft $(S_NAME) $(C_NAME)
 
 re: clean $(NAME)
 
-printf:
-	@echo "COMPILING FT_PRINTF"
-	@make -C ft_printf/
+libft:
+	@echo "COMPILING LIBFT"
+	@make -C libft/
 
 fclean: clean
-	@make -C ft_printf/ fclean
-	@make -C ft_printf/libft/ fclean
+	@make -C libft/ fclean
 
 clean:
 	@rm -fv client
 	@rm -fv server
 
-$(S_NAME):
-	$(CC) $(CFLAGS) $(SERVER_FILES) ft_printf/libftprintf.a -o $(S_NAME)
+$(C_NAME)
+	$(CC) $(CFLAGS) $(CLIENT_FILES) libft/libft.a -o $(C_NAME)
 
-.PHONY: all re printf fclean clean
+$(S_NAME):
+	$(CC) $(CFLAGS) $(SERVER_FILES) libft/libft.a -o $(S_NAME)
+
+.PHONY: all re libft fclean clean
