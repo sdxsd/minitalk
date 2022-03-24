@@ -37,13 +37,14 @@ The definition of Free Software is as follows:
 A program is free software if users have all of these freedoms.
 */
 
+#include <signal.h>
 #include "../libft/libft.h"
 
 int main(int argc, char *argv[])
 {
 	if (argc > 3)
 	{
-
+		kill(ft_atoi(argv[1]), SIGUSR1);
 	}
 	else
 	{
