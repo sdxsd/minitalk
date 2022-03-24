@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 {
 	if (argc > 2)
 	{
-		kill(ft_atoi(argv[1]), SIGUSR1);
+		kill(ft_atoi(argv[1]), 55);
 	}
 	else
 	{

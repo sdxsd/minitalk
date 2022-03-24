@@ -54,16 +54,10 @@ static void	handle_signal(int SIGNUM)
 
 int	main(void)
 {
-	int i;
-
-	i = 1;
-	if (signal(SIGUSR1, handle_signal) == SIG_ERR)
-		exit (0);
-	if (signal(SIGUSR2, handle_signal) == SIG_ERR)
+	if (signal(SIGUSR1, handle_signal) == SIG_ERR || \
+		signal(SIGUSR2, handle_signal) == SIG_ERR)
 		exit (0);
 	ft_printf("Process ID: [%d]\n", getpid());
-	while (i || !i)
-	{
-		i++;
-	}
+	while (1)
+		pause();
 }
