@@ -25,7 +25,7 @@ clean:
 	@rm -fv client
 	@rm -fv server
 
-$(C_NAME)
+$(C_NAME):
 	$(CC) $(CFLAGS) $(CLIENT_FILES) libft/libft.a -o $(C_NAME)
 
 $(S_NAME):
