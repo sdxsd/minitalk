@@ -42,7 +42,7 @@ A program is free software if users have all of these freedoms.
 
 int main(int argc, char *argv[])
 {
-	if (argc > 3)
+	if (argc > 2)
 	{
 		kill(ft_atoi(argv[1]), SIGUSR1);
 	}

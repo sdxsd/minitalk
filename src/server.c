@@ -47,19 +47,23 @@ A program is free software if users have all of these freedoms.
 static void	handle_signal(int SIGNUM)
 {
 	if (SIGNUM == SIGUSR1 || SIGNUM == SIGUSR2)
-		ft_printf("Received signal: %d", SIGNUM);
-	if (SIGNUM == SIGINT || SIGNUM == SIGQUIT)
 	{
-		ft_printf("SIG: [%d] RECEIVED. QUITTING.\n", SIGNUM);
-		exit (0);
+		ft_printf("Received signal: %d\n", SIGNUM);
 	}
 }
 
 int	main(void)
 {
-	if (signal(SIGINT, handle_signal) == SIG_ERR)
+	int i;
+
+	i = 1;
+	if (signal(SIGUSR1, handle_signal) == SIG_ERR)
+		exit (0);
+	if (signal(SIGUSR2, handle_signal) == SIG_ERR)
 		exit (0);
 	ft_printf("Process ID: [%d]\n", getpid());
-	while (1)
-		pause();
+	while (i || !i)
+	{
+		i++;
+	}
 }
