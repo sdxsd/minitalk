@@ -46,9 +46,27 @@ A program is free software if users have all of these freedoms.
 
 static void	handle_signal(int SIGNUM)
 {
-	if (SIGNUM == SIGUSR1 || SIGNUM == SIGUSR2)
+	static int	pos;
+	static int	b_char;
+	int			mask;
+
+	if (SIGNUM == SIGUSR1)
 	{
-		ft_printf("Received signal: %d\n", SIGNUM);
+		mask = 1 << pos;
+		b_char = (b_char & ~mask) | (0 << pos);
+		ft_printf("%d\n", b_char);
+	}
+	if (SIGNUM == SIGUSR2)
+	{
+		mask = 1 << pos;
+		b_char = (b_char & ~mask) | (1 << pos);
+		ft_printf("%d\n", b_char);
+	}
+	pos++;
+	if (pos > 8)
+	{
+		pos = 0;
+		ft_printf("%c", b_char);
 	}
 }
 
